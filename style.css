@@ -1,0 +1,53 @@
+body {
+    text-align: center;
+}
+
+.container {
+    display: inline-block;
+    margin: 50px;
+    background-color: red;
+  }
+  
+.container:before,
+.container:after {
+    display: block;
+    background-color: red;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    transition: all .15s ease;
+}
+
+.container:before {
+    top: 0;
+    left: 0;
+    transform-origin: top left;
+    transform: rotate(-45deg) scale(0);
+}
+
+.container:after {
+    right: 0;
+    bottom: 0;
+    transform-origin: bottom right;
+    transform: rotate(45deg) scale(0);
+}
+
+.picture {
+    height: 300px;
+    display: block;
+    transform: translate(0, 0);
+    transition: all .15s ease;
+    z-index: 10;
+}
+
+.container:hover .picture {
+    transform: translate(6px, -6px);
+}
+
+.container:hover:before {
+    transform: rotate(-45deg) scale(1);
+}
+
+.container:hover:after {
+    transform: rotate(45deg) scale(1);
+}
